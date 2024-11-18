@@ -1,10 +1,6 @@
 var gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
 var browserSync = require('browser-sync').create();
-
-
-
-
+const sass = require('gulp-sass')(require('sass'));
 
 
 
@@ -14,9 +10,6 @@ gulp.task('sass', function() {
         .pipe(gulp.dest("app/css"))
         .pipe(browserSync.stream());
 });
-
-
-
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -28,20 +21,11 @@ gulp.task('browser-sync', function() {
 
 
 
-
-
-
-
-
-
 gulp.task('watch', async function(){
-	    browserSync.init({
+	  browserSync.init({
         server: "./app"
     });
-  gulp.watch('app/scss/**/*.scss',gulp.series (['sass']); 
-  gulp.watch("app/*.html").on('change', browserSync.reload);
+  gulp.watch('app/scss/**/*.scss',gulp.series( ['sass'])); 
+   gulp.watch("app/*.html").on('change', browserSync.reload);
   // Other watchers
 })
-
-
-
